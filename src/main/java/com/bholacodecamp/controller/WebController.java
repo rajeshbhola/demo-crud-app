@@ -1,6 +1,10 @@
 package com.bholacodecamp.controller;
 
+import com.bholacodecamp.entity.User;
 import com.bholacodecamp.service.*;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
 import org.springframework.ui.*;
@@ -13,8 +17,9 @@ public class WebController {
 
     @GetMapping("/users")
     public String getAllUsers(Model model) {
-        model.addAttribute("users", userService.getAllUsers());
-        return "list";
+    	List<User> users = userService.getAllUsers();
+        model.addAttribute("users", users);
+        return "users";
     }
 }
 
