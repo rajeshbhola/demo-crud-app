@@ -8,12 +8,14 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
+@Data
 @Table(name = "users")
 public class User {
     @Id
@@ -26,9 +28,10 @@ public class User {
     @NotBlank(message = "Email is mandatory")
     private String email;
 
-    @NotNull(message = "Mobile number cannot be null")
-    @Pattern(regexp = "^\\d{10}$", message = "Mobile number must be exactly 10 digits")
-    private String mobileNo;
+    @NotNull(message = "Phone number cannot be null")
+    @Pattern(regexp = "^\\d{10}$", message = "Phone number must be exactly 10 digits")
+    private String phone;
     // Getters and Setters
+    
 }
 
